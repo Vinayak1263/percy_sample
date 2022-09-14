@@ -1,3 +1,4 @@
+from concurrent.futures import process
 from dotenv import load_dotenv
 import os
 import json
@@ -18,8 +19,8 @@ bstack_options = {
     "osVersion" : "Monterey",
     "buildName" : "browserstack-build-1",
     "sessionName" : "BStack Python sample",
-    "userName": "vinayakmirani_JVHfyU",
-    "accessKey": "Fs83iRhMWsncDcjHmtox"
+    "userName": os.environ.get("BROWSERSTACK_USERNAME"),
+    "accessKey": os.environ.get("BROWSERSTACK_ACCESS_KEY")
 }
 
 options = ChromeOptions()
