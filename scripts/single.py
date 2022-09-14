@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import os
 import json
+from percy import percy_snapshot
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -28,6 +29,7 @@ driver = webdriver.Remote(
     options=options)
 try:
     driver.get("https://bstackdemo.com/")
+    percy_snapshot(driver, 'Empty Todo State')
     WebDriverWait(driver, 10).until(EC.title_contains("StackDemo"))
     # Get text of an product - iPhone 12
     item_on_page = WebDriverWait(driver, 10).until(

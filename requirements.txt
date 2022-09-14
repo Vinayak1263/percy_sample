@@ -1,3 +1,4 @@
 python-dotenv
 browserstack-local >= 1.2.3
 selenium == 4.1.0
+percy-selenium
